@@ -18,26 +18,36 @@
 
 <body>
   <header>
-    <nav class="nav">
-      <a class="nav-link active" href="#">Active</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link" href="#">Link</a>
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </nav>
+    <div class="row">
+      <!-- Page interlinks in the upper-left-hand corner -->
+      <div class="col">
+        <nav class="nav">
+          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link" href="#">Link</a>
+        </nav>
+      </div>
+
+      <!-- Timer in the upper-right-hand corner -->
+      <div class="col text-right">
+        <h5 class="time"></h5>
+      </div>
+    </div>
   </header>
 
   <main>
-    <div class="container">
-      <!-- Content here -->
-      <h1 id="question"></h1>
+    <div class="row">
+      <div class="container">
+        <!-- Content here -->
+        <h1 id="question"></h1>
 
-      <hr>
+        <hr>
 
-      <div class = "btn-group-vertical" role = "group">
-        <button id="button1" type="button" class="btn btn-info">Info</button>
-        <button id="button2" type="button" class="btn btn-info">Info</button>
-        <button id="button3" type="button" class="btn btn-info">Info</button>
-        <button id="button4" type="button" class="btn btn-info">Info</button>
+        <div class="btn-group-vertical" role="group">
+          <button id="button1" type="button" class="btn btn-info">Info</button>
+          <button id="button2" type="button" class="btn btn-info">Info</button>
+          <button id="button3" type="button" class="btn btn-info">Info</button>
+          <button id="button4" type="button" class="btn btn-info">Info</button>
+        </div>
       </div>
     </div>
 

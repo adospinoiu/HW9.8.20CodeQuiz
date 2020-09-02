@@ -3,52 +3,97 @@ const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const button4 = document.querySelector("#button4");
+const timeEl = document.querySelector(".time");
 
-//Question #1
-question.textContent = "What does HTML stand for?";
-button1.textContent = "1. Hard To Master Language";
-button2.textContent = "2. Hat To Mister Lancaster";
-button3.textContent = "3. Have To Many Laughs";
-button4.textContent = "4. Hypertext Markup Language";
+//Timer in the upper right hand corner
+let secondsLeft = 60;
 
-//Question #2
-question.textContent = "What does CSS stand for?";
-button1.textContent = "1. Clear Sign Security";
-button2.textContent = "2. Cascading Style Sheets";
-button3.textContent = "3. Clean Stop Signs";
-button4.textContent = "4. Come Save Sam";
+function setTime() {
+  let timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = "Time left: " + secondsLeft;
 
-//Question #3
-question.textContent = "Which of the following is FALSE?";
-button1.textContent = "1. 1 === 1";
-button2.textContent = "2. TRUE === TRUE";
-button3.textContent = "3. 5 < 6";
-button4.textContent = "4. 5 != 5";
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      //sendMessage();
+    }
 
-//Question #4
-question.textContent = "What is Bootstrap?";
-button1.textContent = "1. Famous Bootstrap Bill";
-button2.textContent = "2. You use it to tie your boots";
-button3.textContent = "3. CSS on steroids that can be used";
-button4.textContent = "4. There's a snake in my boot";
+  }, 1000);
+}
 
-//Question #5
-question.textContent = "An array is surrounded by?";
-button1.textContent = "1. Single quotation marks";
-button2.textContent = "2. Double quotation marks";
-button3.textContent = "3. Curly brackets";
-button4.textContent = "4. Scare brackets";
+setTime();
 
-//Question #6
-question.textContent = "What is the first line when pushing to GitHub?";
-button1.textContent = "1. git commit -m";
-button2.textContent = "2. git push";
-button3.textContent = "3. git add .";
-button4.textContent = "4. What the heck is GitHub";
+let questionAnswer = [
+  {
+    Question: "What does HTML stand for?",
+    Answers: ["Hard To Master Language",
+      "Hat To Mister Lancaster",
+      "Have To Many Laughs",
+      "Hypertext Markup Language"
+    ],
+    CorrectAnswer: "Hypertext Markup Language"
+  },
 
-//Question #7
-question.textContent = "When is an elseif statement executed?";
-button1.textContent = "1. When the else is not there";
-button2.textContent = "2. When the if is not there";
-button3.textContent = "3. If it feels like it";
-button4.textContent = "4. When the if is false";
+  {
+    Question: "What does CSS stand for?",
+    Answers: ["Clear Sign Security",
+      "Cascading Style Sheets",
+      "Clean Stop Signs",
+      "Come Save Sam"
+    ],
+    CorrectAnswer: "Cascading Style Sheets"
+  },
+
+  {
+    Question: "Which of the following is FALSE?",
+    Answers: ["1 === 1",
+      "TRUE === TRUE",
+      "5 < 6",
+      "5 != 5"
+    ],
+    CorrectAnswer: "5 != 5"
+  },
+
+  {
+    Question: "What is Bootstrap?",
+    Answers: ["Famous Bootstrap Bill",
+      "You use it to tie your boots",
+      "CSS on steroids that can be used",
+      "There's a snake in my boot"
+    ],
+    CorrectAnswer: "CSS on steroids that can be used"
+  },
+
+  {
+    Question: "An array is surrounded by?",
+    Answers: ["Single quotation marks",
+      "Double quotation marks",
+      "Curly brackets",
+      "Square brackets"
+    ],
+    CorrectAnswer: "Square brackets"
+  },
+
+  {
+    Question: "What is the first line when pushing to GitHub?",
+    Answers: ["git commit -m",
+      "git push",
+      "git add .",
+      "What the heck is GitHub"
+    ],
+    CorrectAnswer: "git add ."
+  },
+
+  {
+    Question: "When is an elseif statement executed?",
+    Answers: ["When the else is not there",
+      "When the if is not there",
+      "If it feels like it",
+      "When the if is false"
+    ],
+    CorrectAnswer: "When the if is false"
+  },
+]
+
+
+
