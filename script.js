@@ -13,22 +13,18 @@ const logInitials = document.querySelector("#logInitials");
 
 // Timer in the upper right hand corner
 let secondsLeft = 90;
+let timerInterval = 0;
 
-function setTime(end) {
-  let timerInterval = setInterval(function () {
+function setTime() {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = "Time left: " + secondsLeft;
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-        }
+    }
 
   }, 1000);
-
-  if (end) {
-    clearInterval(timerInterval);
-    setTime(true);
-  }
 }
 
 // Call the Timer to start running
@@ -125,7 +121,7 @@ function nextQuestion() {
     question.textContent = "Your Score Is: " + secondsLeft;
     buttons.setAttribute("style", "display:none");
     logInitials.setAttribute("style", "display:block");
-
+    clearInterval(timerInterval);
   }
 }
 
