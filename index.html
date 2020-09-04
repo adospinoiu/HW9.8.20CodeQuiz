@@ -18,30 +18,35 @@
 
 <body>
   <header>
-    <div class="row">
-      <!-- Page interlinks in the upper-left-hand corner -->
-      <div class="col">
-        <nav class="nav">
-          <a class="nav-link active" href="#">Active</a>
-          <a class="nav-link" href="#">Link</a>
-        </nav>
-      </div>
+    <div class="container">
+      <div class="row">
+        <!-- Page interlinks in the upper-left-hand corner -->
+        <div class="col">
+          <nav class="nav">
+            <a class="nav-link active" href="#">Active</a>
+            <a class="nav-link" href="#">Link</a>
+          </nav>
+        </div>
 
-      <!-- Timer in the upper-right-hand corner -->
-      <div class="col text-right">
-        <h5 class="time"></h5>
+        <!-- Timer in the upper-right-hand corner -->
+        <div class="col text-right">
+          <h5 class="time"></h5>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-    <div class="row">
-      <div class="container">
+    <div class="container">
+      <div class="row">
+
         <!-- Content here -->
         <h1 id="question"></h1>
+      </div>
 
-        <hr>
+      <hr>
 
+      <div id="buttons" class="row">
         <div class="btn-group-vertical" role="group">
           <button id="button1" type="button" class="btn btn-info">Info</button>
           <button id="button2" type="button" class="btn btn-info">Info</button>
@@ -49,6 +54,28 @@
           <button id="button4" type="button" class="btn btn-info">Info</button>
         </div>
       </div>
+
+      <div id="logInitials" class="row" style="display:none">
+
+        <form>
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">Name</label>
+              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter your intials">
+            </div>
+                    
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+          </div>
+        </form>
+
+
+
+
+      </div>
+
+
     </div>
 
 
