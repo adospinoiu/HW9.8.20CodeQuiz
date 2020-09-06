@@ -1,15 +1,45 @@
 const body = document.body;
-const h4El = document.createElement("h4");
+
+const timeEl = document.querySelector(".time");
 
 const question = document.querySelector("#question");
+const startButtonSection = document.querySelector("#startButtonSection");
+const startButton = document.querySelector("#startButton");
+
+const buttons = document.querySelector("#buttons");
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const button4 = document.querySelector("#button4");
-const timeEl = document.querySelector(".time");
-const buttons = document.querySelector("#buttons");
-const logInitials = document.querySelector("#logInitials");
 
+const logInitials = document.querySelector("#logInitials");
+const h4El = document.createElement("h4");
+
+
+
+
+
+
+
+//Start page of the quiz
+
+
+function startQuiz() {
+  question.textContent = "Test your coding knowledge with this quiz.";
+
+  startButton.addEventListener("click", function (event) {
+    event.preventDefault();
+  console.log(event);
+    if (event === true) {
+      startButtonSection.setAttribute("style", "display:none");
+      buttons.setAttribute("style", "display:block");
+      setTime();
+      nextQuestion();
+    }
+  });
+}
+
+startQuiz();
 
 // Timer in the upper right hand corner
 let secondsLeft = 90;
@@ -28,7 +58,7 @@ function setTime() {
 }
 
 // Call the Timer to start running
-setTime();
+//setTime();
 
 // All the questions and answers in a large array of objects
 let questionAnswer = [
@@ -106,8 +136,6 @@ let questionAnswer = [
 let index = 0;
 let currentQuestion = questionAnswer[0]
 
-nextQuestion();
-
 // Calls the questions and all the answers associated with the question
 function nextQuestion() {
   if (index != questionAnswer.length) {
@@ -125,6 +153,7 @@ function nextQuestion() {
   }
 }
 
+//nextQuestion();
 
 //Evaluates the user button clicked and determines if it is the correct answer. 
 button1.addEventListener("click", function (event) {

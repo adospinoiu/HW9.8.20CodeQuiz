@@ -40,13 +40,21 @@
     <div class="container">
       <div class="row">
 
-        <!-- Content here -->
+        <!-- The questions will appear in this section -->
         <h1 id="question"></h1>
       </div>
 
       <hr>
 
-      <div id="buttons" class="row">
+      <!-- Start Quiz Button. Is visible, then dissapears -->
+      <div id="startButtonSection" class="row" style="display:show">
+        <div class="btn-group-vertical" role="group">
+          <button id="startButton" type="button" class="btn btn-info">START</button>
+        </div>
+      </div>
+
+      <!-- The four buttons that will show the answer -->
+      <div id="buttons" class="row" style="display:none">
         <div class="btn-group-vertical" role="group">
           <button id="button1" type="button" class="btn btn-info">Info</button>
           <button id="button2" type="button" class="btn btn-info">Info</button>
@@ -55,29 +63,27 @@
         </div>
       </div>
 
+      <!-- At the end of the quiz, appear, to enter intials and log score -->
       <div id="logInitials" class="row" style="display:none">
 
         <form>
           <div class="form-row align-items-center">
+            <!-- Area to enter initials -->
             <div class="col-auto">
               <label class="sr-only" for="inlineFormInput">Name</label>
               <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter your intials">
             </div>
-                    
+
+            <!-- Submit button to store initials and score -->
             <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </div>
+
           </div>
         </form>
-
-
-
-
       </div>
 
-
     </div>
-
 
   </main>
 
