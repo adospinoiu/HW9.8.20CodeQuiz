@@ -1,36 +1,33 @@
+//Refers to the main body of the HTML
 const body = document.body;
 
+//Refers to where the timer is displayed in the HTML
 const timeEl = document.querySelector(".time");
 
+//Refers to where the questions are displayed and the section the START button is in the HTML
 const question = document.querySelector("#question");
 const startButtonSection = document.querySelector("#startButtonSection");
 const startButton = document.querySelector("#startButton");
 
+//Refers to the the section where the buttons are which will have the answers in the HTML
 const buttons = document.querySelector("#buttons");
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const button4 = document.querySelector("#button4");
 
+//Refers to the section where the intials are entered and submited in the HTML
 const initialsScore = document.querySelector("#initialsScore");
 const inlineFormInput = document.querySelector("#inlineFormInput");
 const submitScore = document.querySelector("#submitScore");
 
-
-
-
-
-
-
-
 //Start page of the quiz
-
-
 function startQuiz() {
   question.textContent = "Test your coding knowledge with this quiz.";
 
+  //Listen for the START button to be clicked. Start the timer; display the questions/answers; hide the START button
   startButton.addEventListener("click", function (event) {
-    event.preventDefault();
+  event.preventDefault();
   console.log(event);
     if (event) {
       startButtonSection.setAttribute("style", "display:none");
@@ -58,9 +55,6 @@ function setTime() {
 
   }, 1000);
 }
-
-// Call the Timer to start running
-//setTime();
 
 // All the questions and answers in a large array of objects
 let questionAnswer = [
@@ -138,7 +132,7 @@ let questionAnswer = [
 let index = 0;
 let currentQuestion = questionAnswer[0]
 
-// Calls the questions and all the answers associated with the question
+// Calls the questions and all the answers associated with the questions. After the last question, hides the buttons and displays where to record the intials.
 function nextQuestion() {
   if (index != questionAnswer.length) {
     currentQuestion = questionAnswer[index]
@@ -154,8 +148,6 @@ function nextQuestion() {
     clearInterval(timerInterval);
   }
 }
-
-//nextQuestion();
 
 //Evaluates the user button clicked and determines if it is the correct answer. 
 button1.addEventListener("click", function (event) {
@@ -209,15 +201,12 @@ button4.addEventListener("click", function (event) {
   nextQuestion();
 });
 
-//Listen for Submit button being pushed to record the score and initials
-
+//Listen for Submit button being pushed to record the score and initials at the end of the quiz
 submitScore.addEventListener("click", function (event) {
   event.preventDefault();
 
   let initials = inlineFormInput.value.trim();
   let score = secondsLeft;
-  console.log(initials);
-  console.log(score);
   
   let scoreHistory = JSON.parse(window.localStorage.getItem("highScores")) || [];
 
@@ -228,6 +217,7 @@ submitScore.addEventListener("click", function (event) {
   loadScores(scoreHistory);
 })
 
+//Loads the previously stored scores and keeps adding to the list
 function loadScores(scores) {
   for (let i = 0; i < scores.length; i++) {
     const h4El = document.createElement("h4");
