@@ -12,8 +12,10 @@ const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const button4 = document.querySelector("#button4");
 
-const logInitials = document.querySelector("#logInitials");
-const h4El = document.createElement("h4");
+const initialsScore = document.querySelector("#initialsScore");
+const inlineFormInput = document.querySelector("#inlineFormInput");
+const submitScore = document.querySelector("#submitScore");
+
 
 
 
@@ -30,7 +32,7 @@ function startQuiz() {
   startButton.addEventListener("click", function (event) {
     event.preventDefault();
   console.log(event);
-    if (event === true) {
+    if (event) {
       startButtonSection.setAttribute("style", "display:none");
       buttons.setAttribute("style", "display:block");
       setTime();
@@ -148,7 +150,7 @@ function nextQuestion() {
   } else {
     question.textContent = "Your Score Is: " + secondsLeft;
     buttons.setAttribute("style", "display:none");
-    logInitials.setAttribute("style", "display:block");
+    initialsScore.setAttribute("style", "display:block");
     clearInterval(timerInterval);
   }
 }
@@ -207,4 +209,29 @@ button4.addEventListener("click", function (event) {
   nextQuestion();
 });
 
+//Listen for Submit button being pushed to record the score and initials
 
+submitScore.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  let initials = inlineFormInput.value.trim();
+  let score = secondsLeft;
+  console.log(initials);
+  console.log(score);
+  
+  let scoreHistory = JSON.parse(window.localStorage.getItem("highScores")) || [];
+
+  let newScore = initials + "---" + score;
+  scoreHistory.push(newScore);
+
+  localStorage.setItem("highScores", JSON.stringify(scoreHistory));
+  loadScores(scoreHistory);
+})
+
+function loadScores(scores) {
+  for (let i = 0; i < scores.length; i++) {
+    const h4El = document.createElement("h4");
+    h4El.textContent = scores[i];
+    initialsScore.appendChild(h4El);
+  }
+}
