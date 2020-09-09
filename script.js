@@ -1,7 +1,8 @@
 //Refers to the main body of the HTML
 const body = document.body;
 
-//Refers to where the timer is displayed in the HTML
+//Refers to where the HighScores Link and timer is displayed in the HTML
+const highScoresLink = document.querySelector("#highScoreLink");
 const timeEl = document.querySelector(".time");
 
 //Refers to where the questions are displayed and the section the START button is in the HTML
@@ -225,3 +226,11 @@ function loadScores(scores) {
     initialsScore.appendChild(h4El);
   }
 }
+
+//Loads the Highscores if the link is pressed
+highScoresLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  const h4El = document.createElement("h4");
+  h4El.textContent = JSON.parse(localStorage.getItem("highScores"));
+  
+})
